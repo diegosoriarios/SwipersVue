@@ -1,16 +1,20 @@
 <template>
-    <swiper :options="swiperOption">
+    <swiper :options="swiperOptionh">
         <swiper-slide>
             <Movie image="http://res.cloudinary.com/og-tech/image/upload/s--4NgMf3RF--/v1521804358/avengers.jpg" title="Avengers : Infinity War" description="Thanos is around" duration="2hrs"/>
         </swiper-slide>
         <swiper-slide>
-            <Movie image="http://res.cloudinary.com/og-tech/image/upload/s--BmgguRnX--/v1521804402/thor.jpg" title="Thor : Ragnarok" description="Thor lost his hair" duration="2hrs30mins"/>
+            <swiper :options="swiperOptionv">
+                <swiper-slide>
+                    <Movie image="http://res.cloudinary.com/og-tech/image/upload/s--BmgguRnX--/v1521804402/thor.jpg" title="Thor : Ragnarok" description="Thor lost his hair" duration="2hrs30mins"/>
+                </swiper-slide>
+                <swiper-slide>
+                    <Movie image="http://res.cloudinary.com/og-tech/image/upload/s--qXaW5V3E--/v1521804426/wakanda.jpg" title="Black Panther" description="Wakanda Forever" duration="2hrs15mins"/>
+                </swiper-slide>
+                <div class="swiper-pagination swiper-pagination-v" slot="pagination"></div>
+            </swiper>                
         </swiper-slide>
-        <swiper-slide>
-            <Movie image="http://res.cloudinary.com/og-tech/image/upload/s--qXaW5V3E--/v1521804426/wakanda.jpg" title="Black Panther" description="Wakanda Forever" duration="2hrs15mins"/>
-        </swiper-slide>
-
-        <div class="swiper-pagination" slot="pagination"></div>
+        <div class="swiper-pagination swiper-pagination-h" slot="pagination"></div>
     </swiper>
 </template>
 
@@ -28,20 +32,19 @@
         },
         data() {
             return {
-                swiperOption: {
-                    effect: 'coverflow',
-                    grabCursor: true,
-                    centeredSlides: true,
-                    slidesPerView: '5',
-                    coverflowEffect: {
-                        rotate: 50,
-                        stretch: 0,
-                        depth: 100,
-                        modifier: 1,
-                        slideShadows: false
-                    },
+                swiperOptionh: {
+                    spaceBetween: 50,
                     pagination: {
-                        el: '.swiper-pagination'
+                        el: '.swiper-pagination-h',
+                        clickable: true
+                    }
+                },
+                swiperOptionv: {
+                    direction: 'vertical',
+                    spaceBetween: 50,
+                    pagination: {
+                        el: '.swiper-pagination-v',
+                        clickable: true
                     }
                 }
             }
