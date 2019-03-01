@@ -29,11 +29,20 @@
         data() {
             return {
                 swiperOption: {
-                    direction: 'vertical',
-                    pagination: {
-                        el: '.swiper-pagination',
-                        type: 'bullets'
+                    effect: 'coverflow',
+                    grabCursor: true,
+                    centeredSlides: true,
+                    slidesPerView: '5',
+                    coverflowEffect: {
+                        rotate: 50,
+                        stretch: 0,
+                        depth: 100,
+                        modifier: 1,
+                        slideShadows: false
                     },
+                    pagination: {
+                        el: '.swiper-pagination'
+                    }
                 }
             }
         }
